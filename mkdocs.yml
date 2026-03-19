@@ -1,0 +1,29 @@
+site_name: theorycrafting
+site_url: https://serendipper.github.io/theorycrafting
+repo_url: https://github.com/Serendipper/theorycrafting
+edit_uri: ""
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.path
+    - search.suggest
+    - search.highlight
+    - toc.integrate
+
+plugins:
+  - search
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - OpenClaw Polybot:
+      - Roadmap: openclaw_polybot/roadmap.md

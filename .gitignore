@@ -1,0 +1,8 @@
+site/
+.venv/
+__pycache__/
+*.egg-info/
+.DS_Store
+.idea/
+.vscode/
+
