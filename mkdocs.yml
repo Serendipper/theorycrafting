@@ -27,3 +27,5 @@ nav:
   - Home: index.md
   - OpenClaw Polybot:
       - Roadmap: openclaw_polybot/roadmap.md
+  - Day Trader Bot:
+      - Sense — TipRanks: day-trader-bot/sense/tiprank/index.md
