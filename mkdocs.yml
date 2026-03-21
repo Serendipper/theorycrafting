@@ -25,6 +25,8 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Health:
+      - Mounjaro effect analysis: health/mounjaro-effect-analysis.md
   - OpenClaw Polybot:
       - Roadmap: openclaw_polybot/roadmap.md
   - Day Trader Bot:
