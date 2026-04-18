@@ -1,4 +1,7 @@
 site/
+# Private health notes (kept locally, not published or tracked)
+docs/health/
+
 .venv/
 __pycache__/
 *.egg-info/
