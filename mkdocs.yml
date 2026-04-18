@@ -25,6 +25,8 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Automation:
+      - Personal automation with Cursor: automation/personal-automation-with-cursor.md
   - Health:
       - Mounjaro effect analysis: health/mounjaro-effect-analysis.md
   - OpenClaw Polybot:
