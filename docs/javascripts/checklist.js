@@ -34,7 +34,13 @@
     }
   }
 
-  function itemKey(checklistId, index) {
+  function itemKey(checklistId, checkbox, index) {
+    const li = checkbox.closest("li.task-list-item");
+    const text = li ? li.textContent : "";
+    const match = text.match(/#\s*(\d+)/);
+    if (match) {
+      return checklistId + "-hp-" + match[1];
+    }
     return checklistId + "-hp-" + (index + 1);
   }
 
@@ -93,7 +99,7 @@
     }
 
     checkboxes.forEach((checkbox, index) => {
-      const key = itemKey(checklistId, index);
+      const key = itemKey(checklistId, checkbox, index);
       checkbox.dataset.checklistKey = key;
       if (state[key]) {
         checkbox.checked = true;
