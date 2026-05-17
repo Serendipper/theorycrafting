@@ -1,0 +1,13 @@
+li.task-list-item.checklist-done > p,
+li.task-list-item.checklist-done > label + * {
+  opacity: 0.65;
+}
+
+li.task-list-item.checklist-done {
+  text-decoration: line-through;
+  text-decoration-color: var(--md-default-fg-color--lighter, #999);
+}
+
+#checklist-reset {
+  margin-top: 0.5rem;
+}

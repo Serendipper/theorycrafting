@@ -1,8 +1,14 @@
+---
+data-checklist: wind-waker-heart-pieces
+---
+
 # The Wind Waker — Heart Pieces checklist
 
 All **44** [Pieces of Heart](https://www.zeldadungeon.net/wiki/Piece_of_Heart) in [*The Legend of Zelda: The Wind Waker*](https://www.zeldadungeon.net/wiki/The_Legend_of_Zelda:_The_Wind_Waker). With the three hearts Link starts with and six from bosses, the maximum is **20 hearts**.
 
 Source: [Zelda Dungeon Wiki — The Wind Waker Heart Pieces](https://www.zeldadungeon.net/wiki/The_Wind_Waker_Heart_Pieces) (converted to a personal checklist; verify in-game if anything differs on your version).
+
+Progress is saved in **this browser only** (local storage on GitHub Pages). It does not sync across devices; clearing site data resets the checklist.
 
 ---
 
@@ -57,11 +63,7 @@ Source: [Zelda Dungeon Wiki — The Wind Waker Heart Pieces](https://www.zeldadu
 
 ## Progress
 
-| Collected | Remaining |
-|-----------|-----------|
-| 0 / 44    | 44        |
-
-*(Update the table manually, or tick boxes above as you go.)*
+<p id="checklist-progress" data-checklist="wind-waker-heart-pieces" data-total="44"><strong>0</strong> / 44 collected · <strong>44</strong> remaining</p>
 
 ---
 

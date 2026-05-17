@@ -22,6 +22,15 @@ markdown_extensions:
       permalink: true
   - attr_list
   - md_in_html
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
+
+extra_javascript:
+  - javascripts/checklist.js
+
+extra_css:
+  - stylesheets/checklist.css
 
 nav:
   - Home: index.md
