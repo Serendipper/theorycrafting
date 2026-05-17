@@ -25,18 +25,32 @@
   }
 
   function saveState(checklistId, state) {
-    localStorage.setItem(storageKey(checklistId), JSON.stringify(state));
+    try {
+      localStorage.setItem(storageKey(checklistId), JSON.stringify(state));
+      return true;
+    } catch (err) {
+      console.warn("Checklist: could not save progress.", err);
+      return false;
+    }
   }
 
   function itemKey(checklistId, index) {
     return checklistId + "-hp-" + (index + 1);
   }
 
+  function getContentRoot() {
+    return (
+      document.querySelector("article.md-content__inner") ||
+      document.querySelector("article.md-typeset") ||
+      document.querySelector("article")
+    );
+  }
+
   function getCheckboxes() {
-    const article = document.querySelector("article .md-typeset");
-    if (!article) return [];
+    const root = getContentRoot();
+    if (!root) return [];
     return Array.from(
-      article.querySelectorAll("li.task-list-item input[type='checkbox']")
+      root.querySelectorAll("li.task-list-item input[type='checkbox']")
     );
   }
 
@@ -71,6 +85,13 @@
 
     const state = loadState(checklistId);
 
+    function persistCheckbox(checkbox, key) {
+      state[key] = checkbox.checked;
+      saveState(checklistId, state);
+      applyCheckedClass(checkbox);
+      updateProgress(checkboxes, progressEl);
+    }
+
     checkboxes.forEach((checkbox, index) => {
       const key = itemKey(checklistId, index);
       checkbox.dataset.checklistKey = key;
@@ -80,10 +101,13 @@
       applyCheckedClass(checkbox);
 
       checkbox.addEventListener("change", function () {
-        state[key] = checkbox.checked;
-        saveState(checklistId, state);
-        applyCheckedClass(checkbox);
-        updateProgress(checkboxes, progressEl);
+        persistCheckbox(checkbox, key);
+      });
+      // Label clicks sometimes skip change in custom Material checkboxes
+      checkbox.addEventListener("click", function () {
+        requestAnimationFrame(function () {
+          persistCheckbox(checkbox, key);
+        });
       });
     });
 
