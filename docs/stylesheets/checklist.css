@@ -11,3 +11,11 @@ li.task-list-item.checklist-done {
 #checklist-reset {
   margin-top: 0.5rem;
 }
+
+.tp-heart-img {
+  display: block;
+  max-width: min(400px, 100%);
+  height: auto;
+  margin: 0.35rem 0 1rem 1.75rem;
+  border-radius: 4px;
+}
