@@ -12,7 +12,8 @@ li.task-list-item.checklist-done {
   margin-top: 0.5rem;
 }
 
-.tp-heart-img {
+.tp-heart-img,
+.tp-poe-img {
   display: block;
   max-width: min(400px, 100%);
   height: auto;
