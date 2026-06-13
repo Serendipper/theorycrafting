@@ -13,7 +13,8 @@ li.task-list-item.checklist-done {
 }
 
 .tp-heart-img,
-.tp-poe-img {
+.tp-poe-img,
+.tp-howling-img {
   display: block;
   max-width: min(400px, 100%);
   height: auto;
