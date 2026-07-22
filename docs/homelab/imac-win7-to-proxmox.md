@@ -153,7 +153,7 @@ Only after Phase 1 + 2 pass and the friend says go.
 
 - [ ] Proxmox VE ISO from [proxmox.com](https://www.proxmox.com/en/downloads) (verify checksum).
 - [ ] USB written with a tool that Mac firmware likes (Etcher is common; some Macs need a special FAT32/GPT USB layout if the stock hybrid ISO will not EFI-boot).
-- [ ] USB Ethernet + USB keyboard.
+- [ ] USB keyboard (and USB Ethernet only if the built-in NIC is dead or missing).
 - [ ] Static IP plan (outside DHCP pool), gateway, DNS, hostname/FQDN (FQDN is annoying to change later).
 - [ ] Backup drives **unplugged** during install so you do not wipe them by accident.
 
