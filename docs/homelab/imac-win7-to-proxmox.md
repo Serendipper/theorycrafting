@@ -4,7 +4,7 @@ Friend-helper plan: keep Plex and other services safe, prove restores work, then
 
 **Last updated:** 2026-07-22
 
-**Assumption:** This is an **Intel** iMac currently running **Windows 7** (typically Boot Camp). Apple Silicon cannot run Proxmox as a bare-metal host. Confirm model year before you touch disks.
+**Hardware:** Older **Intel** iMac running **Windows 7** (typically Boot Camp) — **not** Apple Silicon. Win7-on-iMac usually means roughly early‑2010s hardware, so **no T2** (T2 is late‑2018+). Still write down the exact model/year on Visit 1; Proxmox as bare metal is viable on Intel.
 
 ---
 
@@ -22,10 +22,10 @@ Write answers down (paper or a shared note). Do not skip.
 
 ### Hardware
 
-- [ ] Exact model: Apple menu is gone on Win7 — check sticker, `System Information` equivalents, or boot Option-key firmware screen / serial → [Apple coverage checker](https://checkcoverage.apple.com/) / EveryMac.
-- [ ] Year / CPU / RAM / internal disk size and type (HDD vs SSD vs fusion).
-- [ ] Does it have a **T2** chip? (roughly late-2018+ Intel Macs). T2 means Secure Boot + extra Linux friction.
-- [ ] Working **wired Ethernet** path? Prefer USB/Thunderbolt dongle over Wi‑Fi for a server. Bring a known-good USB NIC + USB keyboard if built-in input is flaky under Linux.
+- [ ] Exact model: Apple menu is gone on Win7 — check sticker, `msinfo32`, Option-key firmware screen, or serial → [Apple coverage checker](https://checkcoverage.apple.com/) / EveryMac.
+- [ ] Year / CPU / RAM / internal disk size and type (HDD vs SSD vs fusion). Older Intel iMacs often have a real Ethernet port — use that for the server; Wi‑Fi is a backup only.
+- [ ] Confirm **no T2** (expected for Win7-era machines). If somehow late‑2018+, Secure Boot / T2 kernels become relevant; otherwise skip that path.
+- [ ] USB keyboard handy anyway (Linux installers sometimes ignore Apple Bluetooth keyboards).
 - [ ] Free USB stick (≥16 GB) for installer; second stick or external drive for backups.
 
 ### Services currently running on the iMac
@@ -157,14 +157,12 @@ Only after Phase 1 + 2 pass and the friend says go.
 - [ ] Static IP plan (outside DHCP pool), gateway, DNS, hostname/FQDN (FQDN is annoying to change later).
 - [ ] Backup drives **unplugged** during install so you do not wipe them by accident.
 
-### Apple-specific gotchas (Intel)
+### Older Intel iMac gotchas
 
-- [ ] Boot installer via **Option (Alt)** → **EFI Boot** (not always “GRUB”).
-- [ ] If T2: set Secure Boot to **No Security** via Recovery → Startup Security Utility before expecting unsigned OS USB boots.
-- [ ] Expect missing Wi‑Fi / trackpad / keyboard on some models — wired NIC + USB input first.
-- [ ] Prefer **wired** management networking for the host.
-- [ ] T2 machines may need community T2 kernels/firmware after install for fans/Wi‑Fi/etc. Plan offline docs; do not depend on Wi‑Fi day one.
-- [ ] iMac is a terrible silent 24/7 server (heat, power, display). Fine for a homelab experiment; say that out loud.
+- [ ] Boot installer via **Option (Alt)** → **EFI Boot** (not always “GRUB”). Some Macs dislike a stock hybrid ISO USB; rewrite the stick or try another writer if it never appears.
+- [ ] Use the **built-in Ethernet** for install + management when present. Do not plan on Wi‑Fi for a Plex host.
+- [ ] USB keyboard if the installer ignores the Apple keyboard; GPU/fan quirks are possible but usually less cursed than T2 Macs.
+- [ ] iMac as a 24/7 box: heat, power draw, and a stuck-on display — fine for a homelab experiment; say that out loud.
 
 ### Install steps (high level)
 
@@ -242,14 +240,13 @@ Bring: spare USB NIC, keyboard, ≥2 large external drives, Ethernet cable, phon
 
 - [Plex — Move an install to another system](https://support.plex.tv/articles/201370363-move-an-install-to-another-system/)
 - [Proxmox VE documentation](https://pve.proxmox.com/pve-docs/)
-- [Apple — Startup Security Utility (T2)](https://support.apple.com/en-us/HT208330)
-- Community writeups on Proxmox on Intel Macs (USB NIC, EFI Boot, T2 kernels) — useful when the stock ISO/Wi‑Fi misbehaves; treat as tips, not gospel for every iMac year.
+- Community notes on Proxmox on **Intel** Macs (EFI Boot, ISO-on-USB quirks) — useful if the installer USB will not appear; ignore T2/Silicon writeups for this machine.
 
 ---
 
 ## Open questions to answer before Visit 3
 
-1. Exact iMac model / year / T2?
+1. Exact iMac model / year / CPU / RAM / disk layout?
 2. Where does the media live today (internal vs external), and how many TB?
 3. Full list of “must work Monday” services beyond Plex?
 4. Is remote Plex access required, or LAN-only?
