@@ -41,6 +41,8 @@ nav:
       - Twilight Princess — Howling Stones: gaming/twilight-princess-howling-stones.md
   - Automation:
       - Personal automation with Cursor: automation/personal-automation-with-cursor.md
+  - Homelab:
+      - iMac Win7 → Proxmox: homelab/imac-win7-to-proxmox.md
   - OpenClaw Polybot:
       - Roadmap: openclaw_polybot/roadmap.md
   - Day Trader Bot:
